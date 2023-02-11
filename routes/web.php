@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\IndexController;
 use Illuminate\Support\Facades\Route;
 
@@ -12,4 +13,8 @@ Route::controller(IndexController::class)->group(function () {
 
     Route::get('/signin', 'signin')->name('login');
     Route::get('/signup', 'signup')->name('register');
+});
+
+Route::controller(ArticleController::class)->group(function () {
+    Route::get("/posts/{article:slug}", "show")->name('posts.show');
 });

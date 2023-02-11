@@ -17,4 +17,9 @@ class Article extends Model
         "slug",
         "author_id",
     ];
+
+    public function user()
+    {
+        return $this->hasOne(User::class, 'id', 'author_id')->first();
+    }
 }
