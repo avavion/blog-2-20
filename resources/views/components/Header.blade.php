@@ -22,23 +22,33 @@
                         <a class="nav-link" href="{{ route('blog') }}">Blog Entries</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('post') }}">Post Details</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="{{ route('contact') }}">Contact Us</a>
                     </li>
 
                     @guest
                         {{-- Регистрация --}}
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('contact') }}">Sign Up</a>
+                            <a class="nav-link" href="{{ route('register') }}">
+                                Sign Up
+                            </a>
                         </li>
 
                         {{-- Авторизация --}}
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('contact') }}">Sign In</a>
+                            <a class="nav-link" href="{{ route('login') }}">
+                                Sign In
+                            </a>
                         </li>
                     @endguest
+
+                    @auth
+                        {{-- Выход --}}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('logout') }}">
+                                Log Out
+                            </a>
+                        </li>
+                    @endauth
                 </ul>
             </div>
         </div>
