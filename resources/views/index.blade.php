@@ -136,13 +136,14 @@
                                             <img src="assets/images/blog-post-01.jpg" alt="" />
                                         </div>
                                         <div class="down-content">
+                                            <span>{{ $article->theme }}</span>
                                             <a href="{{ route('posts.show', $article['slug']) }}">
                                                 <h4>{{ $article['title'] }}</h4>
                                             </a>
                                             <ul class="post-info">
                                                 <li><a href="#">{{ $article->user()->username }}</a></li>
                                                 <li><a href="#">{{ $article['created_at']->format('d.m.Y') }}</a></li>
-                                                <li><a href="#">12 Comments</a></li>
+                                                <li><a href="#">{{ count($article->comments()) }} Comments</a></li>
                                             </ul>
 
                                             <p>{{ $article['content'] }}</p>
@@ -197,7 +198,7 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="sidebar-item search">
-                                    <form id="search_form" name="gs" method="GET" action="#">
+                                    <form id="search_form" name="gs" method="GET" action="/">
                                         <input type="text" name="q" class="searchText"
                                             placeholder="type to search..." autocomplete="on" />
                                     </form>
